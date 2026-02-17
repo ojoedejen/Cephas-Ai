@@ -11,7 +11,7 @@ import { Wrench, Code2 } from 'lucide-react';
 
 export default function ResourcesPage() {
     return (
-        <div className="min-h-screen bg-white p-4 md:p-6 lg:p-8 animate-page-fade-in">
+        <div className="min-h-screen bg-[#AD4707] p-4 md:p-6 lg:p-8 animate-page-fade-in">
             {/* Scroll Progress Indicator */}
             <ScrollProgressBar />
 

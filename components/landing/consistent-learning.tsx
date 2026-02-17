@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { TrendingUp } from "lucide-react";
-import { useScrollAnimation, useCountUp } from "@/hooks/use-scroll-animation";
+import { useScrollAnimation, useCountUp } from "../../hooks/use-scroll-animation";
 
 export function ConsistentLearning() {
   const { ref, isInView } = useScrollAnimation({ threshold: 0.2 });

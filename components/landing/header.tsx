@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,12 +19,25 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between px-4 py-3 bg-[#1a1a1a] rounded-full animate-fade-in-down">
-      {/* Logo */}
-      <div className="flex items-center group cursor-pointer">
-        <span className="text-white text-xl font-bold transition-transform duration-300 group-hover:scale-105">
-          Cephas <span className="text-[#ff5c35]">AI</span>
-        </span>
-      </div>
+      <Link href="/" className="flex items-center group cursor-pointer no-underline">
+        <div className="relative w-12 h-12 overflow-hidden rounded-2xl border-2 border-white/10 shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:border-[#ff5c35]/50 active:scale-95">
+          <Image
+            src="/cephas-ai/logo.png"
+            alt="Cephas AI Logo"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="flex flex-col ml-3 transition-all duration-300 group-hover:translate-x-1">
+          <span className="text-white text-xl font-black leading-tight">
+            Cephas <span className="text-[#ff5c35]">AI</span>
+          </span>
+          <span className="text-[10px] text-gray-400 font-medium tracking-widest uppercase">
+            Empowering Africa
+          </span>
+        </div>
+      </Link>
 
       {/* Navigation */}
       <nav className="hidden md:flex items-center gap-1">
