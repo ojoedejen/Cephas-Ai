@@ -86,3 +86,32 @@ export function useCountUp(end: number, duration: number = 2000) {
 
     return { ref, count };
 }
+
+/**
+ * Custom hook to track window scroll progress.
+ * Returns a number between 0 and 1 representing the scroll percentage.
+ */
+export function useScrollProgress() {
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const winScroll = window.scrollY;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0) {
+                setProgress(winScroll / height);
+            } else {
+                setProgress(0);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        // Initialize
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return progress;
+}
+
